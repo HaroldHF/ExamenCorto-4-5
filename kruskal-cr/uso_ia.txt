@@ -1,0 +1,19 @@
+Uso de Inteligencia Artificial en el Proyecto Kruskal
+
+Durante el desarrollo de este proyecto se emplearon diversas herramientas de IA para acelerar y mejorar el proceso de programación y documentación:
+
+1. DeepSeek:
+   - El análisis del enunciado del proyecto y la idea del enunciado.
+
+2. Claude:
+   - Se utilizó para la estructuración inicial del proyecto.
+   - Ayudó a definir la arquitectura de carpetas, archivos y módulos.
+   - Sugerencias sobre la organización del código y buenas prácticas.
+
+3. Codex (GitHub Copilot):
+   - Se empleó para encontrar y corregir errores de compilación y lógica en el código.
+   - Proporcionó ejemplos de funciones, sintaxis y fragmentos de código para C++.
+   - Asistió en la depuración y mejora de la legibilidad del código.
+
+Resumen:
+La IA fue utilizada principalmente para la estructuración del proyecto y la corrección de errores. 

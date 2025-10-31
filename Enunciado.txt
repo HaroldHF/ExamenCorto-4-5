@@ -1,0 +1,107 @@
+UNIVERSIDAD NACIONAL DE COSTA RICA
+Escuela de Ingeniería en Sistemas
+Curso: Estructuras de Datos
+Evaluación Corta (Quiz) — 30 puntos
+
+Título: “TicoNet: Árbol de Expansión Mínimo para 6 ciudades”
+Fecha: 30/10/2025   Duración sugerida: 90 minutos   Modalidad: Individual
+Lenguaje: C++ (C++11/14/17).
+
+OBJETIVO
+Desarrollar un programa en C++ que cargue un grafo no dirigido y ponderado de 6 ciudades de Costa Rica desde archivo,
+calcule su Árbol de Expansión Mínimo (MST) aplicando el algoritmo de Kruskal, muestre matrices de adyacencia (grafo y MST),
+detalle los pasos del algoritmo, y genere un informe en un archivo .txt con los resultados. Además, debe listar en consola
+todas las conexiones del grafo y las del MST con su costo total.
+
+INSTRUCCIONES GENERALES
+1) Trabaje de forma individual. Entregue el código fuente compilable y el archivo de reporte generado por su programa.
+2) Nombres de ciudades esperados (índices 0..5): San Jose(0), Alajuela(1), Cartago(2), Heredia(3), Limon(4), Puntarenas(5).
+3) Formato de entrada: un archivo de texto plano llamado grafo.txt en el directorio de trabajo, con líneas del tipo:
+      u v costo
+   donde u y v son enteros en [0,5] y costo es un entero positivo. Ejemplo:
+      0 1 120
+      0 2 80
+   El archivo representa aristas no dirigidas; no incluya lazos ni duplicados.
+4) El MST debe contener exactamente V-1 = 5 aristas.
+5) El archivo de reporte debe llamarse: reporte_mst.txt.
+6) Valide apertura/cierre de archivos y maneje errores básicos de E/S (mensajes claros al usuario).
+
+ESPECIFICACIÓN TÉCNICA
+1) Carga y visualización del grafo (obligatorio)
+   - Cargue todas las aristas desde grafo.txt y almacénelas en su estructura de datos.
+   - Muestre por consola:
+     a) La **matriz de adyacencia** del grafo (6x6) con los costos (0 cuando no hay arista).
+     b) El **listado de todas las conexiones** con formato: CiudadA - CiudadB : costo
+
+   Ejemplo de salida (referencial):
+   === MATRIZ DE ADYACENCIA DEL GRAFO ===
+   ... (tabla 6x6)
+   === RECORRIDO DE TODAS LAS CONEXIONES ===
+   San Jose - Alajuela : 120
+   San Jose - Cartago  : 80
+   ...
+
+2) Cálculo del MST con Kruskal (obligatorio)
+   - Ordene las aristas por costo ascendente y aplique Union-Find para decidir uniones sin ciclos.
+   - Muestre:
+     a) La **matriz de adyacency del MST** (6x6) con los costos de las 5 aristas seleccionadas.
+     b) El **detalle de pasos del algoritmo**: por cada arista en orden, indique si se agregó al MST o se descartó,
+        y la evolución parcial (opcionalmente enumerada).
+
+   Ejemplo (referencial):
+   === MATRIZ DE ADYACENCIA DEL MST (Kruskal) ===
+   ... (tabla 6x6 con solo 5 aristas no nulas)
+   === PASOS DEL ALGORITMO KRUSKAL ===
+   (u=1, v=2, c=60)  -> agregado
+   (u=3, v=4, c=70)  -> agregado
+   (u=0, v=4, c=75)  -> descartado (forma ciclo)
+   ...
+
+3) Impresión del MST y costo total (obligatorio)
+   - Liste en consola las 5 aristas del MST con formato: CiudadA - CiudadB : costo
+   - Muestre al final: Costo total: N
+
+4) Reporte a archivo (obligatorio)
+   - Genere reporte_mst.txt con el siguiente contenido mínimo:
+     • Fecha y hora de la ejecución.
+     • Resumen del grafo original: cantidad de aristas cargadas.
+     • Matriz de adyacencia del grafo.
+     • Matriz de adyacencia del MST (Kruskal).
+     • Listado de aristas del MST.
+     • Costo total del MST.
+     • Sección “Pasos del algoritmo Kruskal” con el detalle por arista.
+     • Ruta/nombre del archivo de salida confirmada al final.
+
+RESTRICCIONES Y LINEAMIENTOS
+- Estructuras STL sugeridas: vector, string, algorithm, fstream, iostream.
+- Representación de grafo a elección (lista de aristas, matriz para impresión, etc.).
+- Se penalizarán errores de compilación, salidas incompletas o archivos faltantes.
+- Mantenga nombres de ciudades sin tildes en la salida de consola y reporte.
+
+ENTREGABLES
+1) Código fuente compilable (.cpp único o .h/.cpp).
+2) Archivo reporte_mst.txt generado por el programa.
+3) Archivo grafo.txt (utilizado como entrada).
+
+CRITERIOS DE EVALUACIÓN (30 puntos)
+A. Carga y visualización del grafo (8 pts)
+   - Lectura correcta desde grafo.txt; validaciones básicas (3 pts)
+   - Matriz de adyacencia del grafo impresa correctamente (3 pts)
+   - Listado de todas las conexiones (2 pts)
+
+B. MST con Kruskal (12 pts)
+   - Ordenamiento y uso adecuado de Union-Find; 5 aristas sin ciclos (7 pts)
+   - Matriz de adyacencia del MST correctamente impresa (3 pts)
+   - Detalle de pasos del algoritmo (2 pts)
+
+C. Impresión de resultado del MST (4 pts)
+   - Listado de aristas del MST en consola (2 pts)
+   - Costo total correcto y mostrado en consola (2 pts)
+
+D. Reporte a archivo (5 pts)
+   - Estructura mínima completa, fecha/hora y confirmación de guardado (3 pts)
+   - Formato claro y legible (2 pts)
+
+E. Calidad básica y E/S (1 punto)
+   - Compila sin errores, mensajes claros, manejo básico de archivos (1 punto)
+
