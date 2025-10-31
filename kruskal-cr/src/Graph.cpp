@@ -79,6 +79,7 @@ void Graph::printAllEdges() const {
         std::cout << cityName((City)e.u) << " - " << cityName((City)e.v) << " : " << e.cost << std::endl;
     }
 }
+
 std::vector<Edge> Graph::kruskalMST(int vertexCount, int& outTotalCost) const {
     std::vector<Edge> mst;
     outTotalCost = 0;
@@ -96,5 +97,28 @@ std::vector<Edge> Graph::kruskalMST(int vertexCount, int& outTotalCost) const {
         }
     }
     return mst;
+}
+
+std::vector<KruskalStep> Graph::kruskalSteps(int vertexCount, int& outTotalCost) const {
+    std::vector<KruskalStep> steps;
+    std::vector<Edge> mst;
+    outTotalCost = 0;
+    std::vector<Edge> sortedEdges = edges;
+    for (size_t i = 0; i < sortedEdges.size(); ++i) {
+        for (size_t j = i + 1; j < sortedEdges.size(); ++j) {
+            if (edgeCostLess(sortedEdges[j], sortedEdges[i])) std::swap(sortedEdges[i], sortedEdges[j]);
+        }
+    }
+    UnionFind uf(vertexCount);
+    for (const auto& e : sortedEdges) {
+        bool added = false;
+        if (uf.unite(e.u, e.v)) {
+            mst.push_back(e);
+            outTotalCost += e.cost;
+            added = true;
+        }
+        steps.push_back({e, added, mst});
+    }
+    return steps;
 }
 const std::vector<Edge>& Graph::getEdges() const { return edges; }

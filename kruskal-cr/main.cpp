@@ -14,9 +14,14 @@ int main() {
     g.printAllEdges();
     std::cout << "\n=== MATRIZ DE ADYACENCIA DEL MST (Kruskal) ===\n";
     int totalCost = 0;
-    auto mst = g.kruskalMST(CITY_COUNT, totalCost);
+    auto steps = g.kruskalSteps(CITY_COUNT, totalCost);
+    std::vector<Edge> mst;
+    if (!steps.empty()) {
+        mst = steps.back().mstPartial;
+    }
     Graph::printAdjacencyMatrixMST(mst);
-    std::cout << "\n=== PASOS DEL RECORRIDO MST (Kruskal) ===\n";
+    std::cout << "\n=== PASOS DEL ALGORITMO KRUSKAL ===\n";
+    Reporter::printKruskalSteps(steps, std::cout);
     Reporter::saveFullReport(g.getEdges(), mst, totalCost, "kruskal-cr/reporte_mst.txt");
     return 0;
 }
