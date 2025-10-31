@@ -6,13 +6,17 @@
 #include "include/Reporter.hpp"
 #include <iostream>
 int main() {
-    const int COST = 100; // TODO: cambiar por aleatorio si se permite
     Graph g;
-    g.buildCompleteWithCosts(COST);
-    std::cout << "=== TODAS LAS CONEXIONES (costo fijo) ===" << std::endl;
+    g.buildFromFile("kruskal-cr/grafo.txt");
+    std::cout << "\n=== MATRIZ DE ADYACENCIA DEL GRAFO ===\n";
+    g.printAdjacencyMatrix();
+    std::cout << "\n=== RECORRIDO DE TODAS LAS CONEXIONES ===\n";
     g.printAllEdges();
+    std::cout << "\n=== MATRIZ DE ADYACENCIA DEL MST (Kruskal) ===\n";
     int totalCost = 0;
     auto mst = g.kruskalMST(CITY_COUNT, totalCost);
-    Reporter::saveMSTReport(mst, totalCost);
+    Graph::printAdjacencyMatrixMST(mst);
+    std::cout << "\n=== PASOS DEL RECORRIDO MST (Kruskal) ===\n";
+    Reporter::saveFullReport(g.getEdges(), mst, totalCost, "kruskal-cr/reporte_mst.txt");
     return 0;
 }

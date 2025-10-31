@@ -1,6 +1,8 @@
 
 #include "City.hpp"
-std::string cityName(City c) {
+#include <string>
+
+std::string cityToString(City c) {
     switch (c) {
         case SAN_JOSE: return "San Jose";
         case ALAJUELA: return "Alajuela";

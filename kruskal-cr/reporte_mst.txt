@@ -1,0 +1,43 @@
+=== MATRIZ DE ADYACENCIA DEL GRAFO ===
+                San Jose    Alajuela     Cartago     Heredia       Limon  Puntarenas
+    San Jose         —         120          80         150         200          90
+    Alajuela         120         —          60         110         130         100
+     Cartago          80          60         —          70         140         160
+     Heredia         150         110          70         —          50         180
+       Limon         200         130         140          50         —          75
+  Puntarenas          90         100         160         180          75         —
+
+=== RECORRIDO DE TODAS LAS CONEXIONES ===
+San Jose - Alajuela : 120
+San Jose - Cartago : 80
+San Jose - Heredia : 150
+San Jose - Limon : 200
+San Jose - Puntarenas : 90
+Alajuela - Cartago : 60
+Alajuela - Heredia : 110
+Alajuela - Limon : 130
+Alajuela - Puntarenas : 100
+Cartago - Heredia : 70
+Cartago - Limon : 140
+Cartago - Puntarenas : 160
+Heredia - Limon : 50
+Heredia - Puntarenas : 180
+Limon - Puntarenas : 75
+
+=== MATRIZ DE ADYACENCIA DEL MST (Kruskal) ===
+                San Jose    Alajuela     Cartago     Heredia       Limon  Puntarenas
+    San Jose         —                      80                                    
+    Alajuela                     —          60                                    
+     Cartago          80          60         —          70                        
+     Heredia                                  70         —          50            
+       Limon                                              50         —          75
+  Puntarenas                                                          75         —
+
+=== MST (Kruskal) ===
+Heredia - Limon : 50
+Alajuela - Cartago : 60
+Cartago - Heredia : 70
+Limon - Puntarenas : 75
+San Jose - Cartago : 80
+Costo total: 335
+Reporte guardado en: kruskal-cr/reporte_mst.txt
